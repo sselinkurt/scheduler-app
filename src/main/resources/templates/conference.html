@@ -13,7 +13,7 @@
 </tr>
 <tr th:each="talk : ${talks}">
     <br>
-    <h2 style="display:inline;" th:text="${talk.title} + ' : '" fdfd>title</h2>
+    <h2 style="display:inline;" th:text="${talk.title} + ' : '">title</h2>
     <h2 style="display:inline;" th:text="${talk.startTime} + ' - '">startTime</h2>
     <h2 style="display:inline;" th:text="${talk.endTime}">endTime</h2>
     <br>

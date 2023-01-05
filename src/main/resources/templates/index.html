@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
+    <title>Conference Form</title>
+</head>
+<body>
+<h1>Conference Form</h1>
+<form action="create" th:action="@{save}"  method="post" th:object="${talks}">
+    <fieldset>
+        <table>
+            <thead>
+            <tr>
+                <th> Title</th>
+                <th> Duration</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="talk, itemStat : *{talks}">
+                <td><input th:field="*{talks[__${itemStat.index}__].title}" /></td>
+                <td><input th:field="*{talks[__${itemStat.index}__].duration}" /></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" id="submitButton" th:value="Save">
+    </fieldset>
+</form>
+</body>
+</html>

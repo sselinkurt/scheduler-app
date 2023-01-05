@@ -59,7 +59,7 @@ public class ConferenceSchedulerService {
         String lastAfternoonTalkFinish = responses.get(responses.size() - 1).getEndTime();
         DateTime lastAfternoonTalkFinishDT = DATE_TIME_FORMAT.parseDateTime(lastAfternoonTalkFinish);
         lastAfternoonTalkFinishDT = lastAfternoonTalkFinishDT.withYear(NETWORKING_END_TIME.getYear()).withMonthOfYear(NETWORKING_END_TIME.getMonthOfYear()).withDayOfYear(NETWORKING_END_TIME.getDayOfYear());
-        if (lastAfternoonTalkFinishDT.isBefore(NETWORKING_END_TIME)) {
+        if (lastAfternoonTalkFinishDT.isBefore(NETWORKING_END_TIME) && (lastAfternoonTalkFinishDT.isAfter(NETWORKING_START_TIME) || lastAfternoonTalkFinishDT.isEqual(NETWORKING_START_TIME))) {
             responses.add(ConferenceResponse.builder().title("NETWORKING EVENT").startTime(lastAfternoonTalkFinish).endTime(DATE_TIME_FORMAT.print(AFTERNOON_END_TIME)).build());
         }
     }

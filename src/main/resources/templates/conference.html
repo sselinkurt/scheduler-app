@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+
+<h1>Conference Calendar</h1>
+
+<tr th:if="${talks.empty}">
+    <td colspan="2"> No Talks Available </td>
+</tr>
+<tr th:each="talk : ${talks}">
+    <br>
+    <h2 style="display:inline;" th:text="${talk.title}">title</h2>
+    <h2 style="display:inline;" th:text="${talk.startTime}">startTime</h2>
+    <h2 style="display:inline;" th:text="${talk.endTime}">endTime</h2>
+    <br>
+</tr>
+
+</body>
+</html>
